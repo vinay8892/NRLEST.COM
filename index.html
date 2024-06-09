@@ -45,7 +45,7 @@
     <link href="templates/shaper_resort/css/presets/preset1c619.css?v=1.0" rel="stylesheet" type="text/css" class="preset"/>
 
     <link href="lightbox/light-box.css" rel='stylesheet' type='text/css'>
-    
+	 
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css?v=1.0" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -55,6 +55,7 @@
     <link rel='stylesheet' href='unitegallery/css/unite-gallery.css' type='text/css'/>
     <script type='text/javascript' src='unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js'></script>
     
+	
     <style type="text/css">
 
         #sppb-addon-1507611918 .sppb-addon-title {
@@ -370,7 +371,108 @@
 }
 
 /*** 
-		
+
+ /*---------------------------------------
+      Floor Plans             
+  -----------------------------------------*/
+
+  #floorPlans .section-title {
+    text-align: center;
+  }
+
+  #floorPlans .owl-theme .owl-nav {
+    margin-top: 30px;
+  }
+
+  #floorPlans .owl-theme .owl-nav [class*=owl-] {
+    border-radius: 2px;
+    font-size: 16px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .courses-thumb {
+    background: #f9f9f9;
+    position: relative;
+  }
+
+  .courses-top {
+    position: relative;
+  }
+
+  .courses-image {
+    background: linear-gradient(to right, #202020, #101010);
+  }
+
+  .courses-date {
+    background: linear-gradient(rgba(255, 0, 0, 0), rgba(0, 0, 0, 0.6));
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 20px 25px;
+  }
+
+  .courses-date span,
+  .courses-author span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .courses-date span {
+    color: #ffffff;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .courses-detail {
+    padding: 25px 25px 15px 25px;
+  }
+
+  .courses-detail h3 {
+    margin: 0 0 2px 0;
+  }
+
+  .courses-info {
+    border-top: 1px solid #f0f0f0;
+    position: relative;
+    clear: both;
+    padding: 15px 25px;
+  }
+
+  .courses-author,
+  .courses-author span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .courses-author img {
+    display: inline-block !important;
+    border-radius: 50px;
+    width: 50px !important;
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  .courses-price {
+    float: right;
+    margin-top: 10px;
+  }
+
+  .courses-price span {
+    background: #29ca8e;
+    border-radius: 2px;
+    color: #ffffff;
+    display: block;
+    padding: 5px 10px;
+  }
+
+  .courses-price.free span {
+    background: #3f51b5;
+  }
+/Floor Plans end		
 		
     </style>
 
@@ -386,12 +488,66 @@
  gtag('config', 'AW-11134973561'); 
  </script>
 
+<script type="text/javascript">
+	 
+  document.addEventListener("DOMContentLoaded", function() {
+  var lazyloadImages;    
 
+  if ("IntersectionObserver" in window) {
+    lazyloadImages = document.querySelectorAll(".lazy");
+    var imageObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var image = entry.target;
+          image.src = image.dataset.src;
+          image.classList.remove("lazy");
+          imageObserver.unobserve(image);
+        }
+      });
+    });
+
+    lazyloadImages.forEach(function(image) {
+      imageObserver.observe(image);
+    });
+  } else {  
+    var lazyloadThrottleTimeout;
+    lazyloadImages = document.querySelectorAll(".lazy");
+    
+    function lazyload () {
+      if(lazyloadThrottleTimeout) {
+        clearTimeout(lazyloadThrottleTimeout);
+      }    
+
+      lazyloadThrottleTimeout = setTimeout(function() {
+        var scrollTop = window.pageYOffset;
+        lazyloadImages.forEach(function(img) {
+            if(img.offsetTop < (window.innerHeight + scrollTop)) {
+              img.src = img.dataset.src;
+              img.classList.remove('lazy');
+            }
+        });
+        if(lazyloadImages.length == 0) { 
+          document.removeEventListener("scroll", lazyload);
+          window.removeEventListener("resize", lazyload);
+          window.removeEventListener("orientationChange", lazyload);
+        }
+      }, 20);
+    }
+
+    document.addEventListener("scroll", lazyload);
+    window.addEventListener("resize", lazyload);
+    window.addEventListener("orientationChange", lazyload);
+  }
+});
+
+ </script>
+ 
 </head>
 
 <body class="site com-sppagebuilder view-page no-layout no-task itemid-437 en-gb ltr  sticky-header layout-fluid">
 
-<div class="body-innerwrapper">
+<div class="body-innerwrapper" >
+  <section id="MenuBar">
     <section id="sp-top-bar">
         <div class="container">
             <div class="row">
@@ -412,7 +568,7 @@
         </div>
     </section>
     <span id="home" style="height: 0px;"></span>
-    <header id="sp-header">
+    <header id="sp-header" id="MenuBar">
         <div class="container">
             <div class="row">
                 <div id="sp-logo" class="col-xs-8 col-sm-2 col-md-2">
@@ -460,6 +616,7 @@
             </div>
         </div>
     </header>
+	
     <section id="sp-page-title">
         <div class="row">
             <div id="sp-title" class="col-sm-12 col-md-12">
@@ -469,8 +626,8 @@
     </section>
    
     <a class="whats-app" target="_blank" href="https://api.whatsapp.com/send/?phone=919717140707&text&lang=En&app_absent=0"><i class="fa fa-whatsapp" style="font-size:50px;color:white"></i></a>
-	
-    <section id="sp-main-body">
+	</section>
+    <section id="sp-main-body" >
         <div class="row">
             <div id="sp-component" class="col-sm-12 col-md-12">
                 <div class="sp-column ">
@@ -635,6 +792,116 @@
 
 
                             </section>
+							
+						<section id="AboutUs1" class="sppb-section   rooms-suits">
+                                <div class="sppb-row-container" style="">
+                                    <div class="sppb-section-title sppb-text-center">
+                                        <h2 class="sppb-title-heading myt1">Nirala Estate Phase 2,3,4, 5</h2>
+                                        <div class="underline">&nbsp;</div>
+                                    </div>
+ 
+
+                                    <div class="sppb-row">
+
+										
+																				<p>
+										✅ 2/3 BHK UNDER CONSTRUCTION PROJECT
+										</p>
+										<p>
+										✅ Booking Amount 1 Lakh*
+										</p>
+										<p>
+										✅ Floor Heights G+24
+										</p>
+										<p>
+										✅ 2 Side Open Plot
+										</p>
+																<p>
+										✅ 12 Acres of Land
+										</p>
+										<p>
+										✅ RERA No. UPRERAPRJ788191
+										</p>
+										<p>
+										✅ Fully RCC structure - Earthquake Resistant
+										</p>					
+
+										<p>
+										✅Only 4 Apartment on Each Floor
+										</p>
+										
+										<p>
+										✅Resort Style Living Residential
+										</p>
+
+										<p>
+										✅25 Acre Project with Spacious Balconies. 12+ World-Class Amenities & Green Spaces, Covered Car Parking, Club Membership etc.
+										</p>
+										
+										<p>
+										✅Best Security in The Area
+										</p>
+										
+										<p>
+										✅On 110 Meter, there is main road which is directly connecting to Metro Network, FNG Corridor, Noida Expressway
+										</p>
+
+										<p>
+										✅Metro Station Planned on Gaur Chowk just 1Km Away From Society
+										</p>
+										
+										<p>
+										✅All necessary amenities ( i.e. Kids schools, Good Colleges, Shopping malls, multi speciality hospital, Big Multi National Companies, metro station etc.,) available from 2 to 10 KM 
+										</p>
+										
+										<p>
+										✅largest mall of Noida extension ( Bhutani Grandthum, spread over 25 Acre) is adjacent to Nirala Estate.
+										</p>
+										
+
+										
+                                    </div>
+
+                                    <div class="sppb-row">
+
+										<div class="sppb-col-sm-6">
+										<p>
+										Nirala Estate Phase 2 Noida Extension Premium Homes at Unique strategic location! Grab this opportunity to buy a sweet home! Nirala Estate Phase 2 offers Premium Apartments in various sizes for the customers. Located at GH-04, Tech Zone-IV, Noida Extension. Loaded with plush amenities, these Unique Homes is a fantastic example of spacious living with nature. It is a great place to live a fulfilled life!
+										</p>
+										<p>
+										Welcome to a world class investment destination! Check out Nirala Estate Phase 2 Price List- prices is reasonable and facilities are of high quality. Come take advantage of all luxury amenities- this project offers lush green surroundings, sports amenities, Skating rink, Swimming Pool, 100% power backup, Reflexology Path, Yoga and meditation area and Secured gated community, closer proximity to mod conveniences and amazing fine architecture.
+										</p>
+										<p>
+										These apartments enjoy proper air ventilation and proper sunlight – these good ventilated apartments are great option for health conscious people. As per the Nirala Estate Phase 2 Construction Update, the development is ready to move in project and the construction is already completed. So, you can start living in your dream home as soon as you purchase it!
+										</p>
+										<p>
+										Loaded with tremendous facilities, the development is offering 2 BHK + 2 Toilet 995 Sq ft. and 3 BHK+2/3 Toilet 1225 to 1897 Sq ft for interested home buyers as per Nirala Estate Phase 2 Brochure. This development is offering world class living spaces at strategic location.
+										</p>
+																<p>
+										Road and metro connectivity is good as the property is located closer to Kissan Chowk metro station and Upcoming Sector 79 metro station. Right now you can also access the Operational Noida City Centre metro station and this operational metro connectivity is also not away from the residential development.
+										</p>
+										<p>
+										Sai Mandir and Golf Course are located closer to the development. Live Luxurious Life in Nirala Estate Phase 2 Address- GH-04, Tech Zone-IV, Noida Extension- come to natural atmosphere, come to smart lifestyle!
+										</p>
+	
+										</div>
+										
+										<div class="sppb-col-sm-6">
+											<img src="images/about-img.jpg">
+										</div>
+										
+                                    </div>
+									
+
+                                </div>
+							   
+							    <div  style="text-align: center;margin-top:25px;margin-bottom:25px;">
+									<a href="images/Nirala Estate phase-5.pdf" class="btn btn-danger">Download Brochure</a>
+								</div>
+								
+                            </section>	
+							
+							
                             <section id="PriceList" class="sppb-section   resort-discount wow">
                                 <div class="overlay">
                                     <div class="sppb-row-container">
@@ -696,7 +963,7 @@
                                                             <td class="her1 cursor click_here">
                                                                 <a href="javascript:void(0)"
                                                                    class="price-click">
-                                                                    Click Here
+                                                                    Price Breakup
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -717,7 +984,7 @@
                                                             <td class="her1 cursor click_here">
                                                                 <a href="javascript:void(0)"
                                                                    class="price-click">
-                                                                    Click Here
+                                                                    Price Breakup
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -729,7 +996,7 @@
                                                             <td class="her1 cursor click_here">
                                                                 <a href="javascript:void(0)"
                                                                    class="price-click">
-                                                                    Click Here
+                                                                    Price Breakup
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -741,7 +1008,7 @@
                                                             <td class="her1 cursor click_here">
                                                                 <a href="javascript:void(0)"
                                                                    class="price-click">
-                                                                    Click Here
+                                                                    Price Breakup
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -753,7 +1020,7 @@
                                                             <td class="her1 cursor click_here">
                                                                 <a href="javascript:void(0)"
                                                                    class="price-click">
-                                                                    Click Here
+                                                                    Price Breakup
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -770,6 +1037,29 @@
                             </section>
 
 
+
+
+                            <section id="priceDetails"
+                                     class="sppb-section   rooms-suits resort-title-heading wow">
+                                <div class="sppb-row-container">
+                                    <div class="sppb-section-title sppb-text-center">
+                                        <h2 class="sppb-title-heading delay-10s animated wow fadeInDown animated"
+                                            style="visibility: visible; animation-name: fadeInDown;">Price Details
+                                            </h2>
+                                        <div class="underline">&nbsp;</div>
+                                    </div>
+
+									<img id="PriceLstPhaseV_1"  data-src="images/PriceList_PhaseV_1.jpg" alt="Nirala Estate" width="100%" class="lazy" ></img>	
+									<img id="PriceLstPhaseV_2" data-src="images/PriceList_PhaseV_2.jpg" alt="Nirala Estate" width="100%" class="lazy"></img>
+						
+                                </div>
+							    <div  style="text-align: center;margin-top:25px;margin-bottom:25px;">
+									<a href="images/Price List Nirala Estate -II 22.05.2024.pdf" class="btn btn-danger">Download Payment Plan Phase II</a>
+									<a href="images/Price List Nirala Estate -III 27.05.2024.pdf" class="btn btn-danger">Download Payment Plan Phase III</a>
+									<a href="images/Price List Nirala Estate -IV 27.05.2024.pdf" class="btn btn-danger">Download Payment Plan Phase IV</a>
+								</div>
+
+                            </section>
 
                             <section id="Connectivity" class="sppb-section   rooms-suits">
                                 <div class="sppb-row-container" style="">
@@ -1246,6 +1536,9 @@
                                     </div>
                                 </div>
                             </section>
+
+
+
 
 
                             <section id="location" class="sppb-section  resort-testimonials wow">
