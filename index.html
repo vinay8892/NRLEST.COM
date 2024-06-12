@@ -16,7 +16,7 @@
      <meta name="description" content="Nirala Estate offers premium apartments in Sector Tech Zone 4, Greater Noida West, Uttar Pradesh. Phases 2, 3, 4, and 5 of Nirala Estate provide 2/3 BHK residential apartments at affordable price ranges.">
      <meta name="keywords" content="nirala estate">
 	 
-     <meta name="author" content="https://www.nirala-estate.com/">
+     <meta name="author" content="Nirala Estate phase 2,3">
 	 <meta name="ROBOTS" content="INDEX, FOLLOW" />
 	 <meta name="rating" content="Safe For Kids" />
      <meta name="googlebot" content="INDEX, FOLLOW" />
@@ -369,7 +369,7 @@
 	line-height:1.2em;
 	font-family: 'Montserrat', sans-serif;
 }
-
+#more {display: none;}	
 /*** 
 
  /*---------------------------------------
@@ -473,6 +473,8 @@
     background: #3f51b5;
   }
 /Floor Plans end		
+
+
 		
     </style>
 
@@ -488,59 +490,7 @@
  gtag('config', 'AW-11134973561'); 
  </script>
 
-<script type="text/javascript">
-	 
-  document.addEventListener("DOMContentLoaded", function() {
-  var lazyloadImages;    
 
-  if ("IntersectionObserver" in window) {
-    lazyloadImages = document.querySelectorAll(".lazy");
-    var imageObserver = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          var image = entry.target;
-          image.src = image.dataset.src;
-          image.classList.remove("lazy");
-          imageObserver.unobserve(image);
-        }
-      });
-    });
-
-    lazyloadImages.forEach(function(image) {
-      imageObserver.observe(image);
-    });
-  } else {  
-    var lazyloadThrottleTimeout;
-    lazyloadImages = document.querySelectorAll(".lazy");
-    
-    function lazyload () {
-      if(lazyloadThrottleTimeout) {
-        clearTimeout(lazyloadThrottleTimeout);
-      }    
-
-      lazyloadThrottleTimeout = setTimeout(function() {
-        var scrollTop = window.pageYOffset;
-        lazyloadImages.forEach(function(img) {
-            if(img.offsetTop < (window.innerHeight + scrollTop)) {
-              img.src = img.dataset.src;
-              img.classList.remove('lazy');
-            }
-        });
-        if(lazyloadImages.length == 0) { 
-          document.removeEventListener("scroll", lazyload);
-          window.removeEventListener("resize", lazyload);
-          window.removeEventListener("orientationChange", lazyload);
-        }
-      }, 20);
-    }
-
-    document.addEventListener("scroll", lazyload);
-    window.addEventListener("resize", lazyload);
-    window.addEventListener("orientationChange", lazyload);
-  }
-});
-
- </script>
  
 </head>
 
@@ -1274,7 +1224,7 @@
                                                                                 <a href="#external"
                                                                                    aria-controls="profile"
                                                                                    role="tab"
-                                                                                   data-toggle="tab">Unit Plan</a>
+                                                                                   data-toggle="tab">Floor Plan</a>
                                                                             </li>
                                                                             <li role="presentation">
                                                                                 <a
@@ -1534,6 +1484,9 @@
 
 
 
+ 
+
+
                             <section id="location" class="sppb-section  resort-testimonials wow">
                                 <div class="sppb-row-container">
                                     <div class="sppb-row">
@@ -1675,8 +1628,11 @@
                 <div class="col-sm-4 col-md-4">
                     <div class="sp-column footer-txt">
                         <span class="sp-copyright">Nirala Estate </span>
+						Plot No. GH-04,<br>
                         Sector Tech Zone IV, Greater Noida West,<br> (U.P.) – 201306
                     </div>
+					<p>Phone:+91 9717140707</p>
+					<p>Email: info@nirala-estate.com</p>
                 </div>
                 <div class="col-sm-4 col-md-4">
                     <div class="sp-column footer-txt">
@@ -1740,6 +1696,8 @@
                         <span class="sp-copyright">Nirala Estate</span>
                         Sector Tech Zone IV, <br> Greater Noida West – 201306
                     </div>
+					<p>Phone:+91 9717140707</p>
+					<p>Email: info@nirala-estate.com</p>
                 </div>
             </div>
         </div>
@@ -1756,7 +1714,9 @@
 										<a href="privacy-policy/index.html" target="_blank" style="color: #0078bf;">
                             Privacy Policy.</a>
 					<p>
-					Disclaimer : The content provided on this website is for information purposes only and does not constitute an offer to avail any service. We do not claim to be owner of the real estate property/society. The prices mentioned are subject to change without prior notice, and the availability of properties mentioned is not guaranteed. The images displayed on the website are for representation purposes only and may not reflect the actual properties accurately.
+					 Disclaimer :This website belongs to the authorised marketing partner of the project. The company reserves the right to add, alter or delete material from the website at any time and may, at any time, revise these terms without prior notification, therefore advise that you periodically visit this page to review the current terms. This is not an offer, an invitation to offer and/or commitment of any nature. The images includes artistic impressions and stock images.<span id="dots">...</span><span id="more"> The Designs, dimensions, cost, facilities, plans, images, specifications, furniture, accessories, paintings, items, electronic goods, additional fittings/fixtures, decorative items, false ceiling including finishing materials, specifications, shades, sizes and colour of the tiles and other details shown in the images are only indicative in nature and are only for the purpose of illustrating/indicating a possible layout and do not form part of the standard specifications/amenities/services to be provided in the flat. Recipients are advised to use their discretion in relying on the information/amenities described/shown therein. All specifications of the property shall be as per the final agreement between the Parties.</span>					
+                    <button role="link" onclick="ReadMoreLess()" id="myBtn" style="background: none!important;border: none;color: #0078bf;">Read more</button>
+					
 					</p>
 					<p>
 					-
@@ -1903,7 +1863,7 @@
 
 <!-- ================ I'm interested ==================== -->
 
-<button class="btn btn-danger interested i-am hidden-xs">Get Call Back</button>
+<button class="btn btn-danger interested i-am hidden-xs">Book Site Visit</button>
 
 <!--<button id="mobile1" type="submit" class="btn interested-mobile hidden-lg hidden-md mobile-btn i-am" data-toggle="modal" data-target="#brochure" style="display: block;"><i class="fa fa-phone"></i>-->
 <!--</button>-->
@@ -1917,10 +1877,10 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">×</span></button>
 
-                <h4 class="modal-title">Get Call Back</h4>
+                <h4 class="modal-title">Book A Free Site Visit</h4>
             </div>
             <div class="modal-body">
-                <p>Please enter the details below to get call back from office.</p>
+                <p>Please enter the details below to book a free site visit.</p>
                 <form id="float-form" name="float-form" >
                     <div class="form-group col-md-12">
                         <div class="input-group">
@@ -2055,6 +2015,7 @@
 <script src="js/cookie.js"></script>
 <script src="js/popout.js"></script>
 <script type="text/javascript" src="js/wow.min.js"></script>
+<script src="js/indexJs.js"></script>
 
 <script type="text/javascript">
     jQuery(document).ready(function () {
@@ -2083,172 +2044,6 @@
     jQuery(document).ready(function ($) {
         var $gallery = $('.l-box a').simpleLightbox();
     });
-</script>
-
-<script type="text/javascript">
-	 jQuery(document).ready(function(){
-	      
-	 	   jQuery("#AvailtheoffersNow").click(function(){
-		    if (!jQuery("#main-popup").valid())
-			{
-			   return false;
-			}
-            var sname=jQuery('#POPUPName').val()
-			var smobile=jQuery('#POPUPMobile').val()
-			var semail='No Email.'
-			var sUrl=''
-			sUrl='https://tgroz9ryhi.execute-api.ap-south-1.amazonaws.com/Prod/api/Leads'		
-			jQuery("#pageloader").fadeIn();
-			var d = new Date();
-            jQuery.ajax({
-                url: sUrl,
-                method: 'POST',
-                data: {
-
-                    name: sname ,
-                    mobile: smobile,
-                    email: semail,
-					date:'',
-					projectName:'NiralaEstate2'
-
-                },
-                success: function (data) {
-				     jQuery("#pageloader").fadeOut();
-					 jQuery('#main-pop').modal('hide');
-					 gtag('event', 'conversion', {'send_to': 'AW-11134973561/eqHdCL_3uoEZEPnsyL0p'});
-					 window.alert('Thank you for showing interest in the project. Soon we will call you for exciting offers');				    
-                },
-                error: function () {
-				   jQuery("#pageloader").fadeOut();				   
-					 jQuery('#main-pop').modal('hide');
-					 gtag('event', 'conversion', {'send_to': 'AW-11134973561/eqHdCL_3uoEZEPnsyL0p'});
-					 window.alert('Thank you for showing interest in the project. Soon we will call you for exciting offers');
-                }
-
-            });
-			return false;
-	      });
-		  
-		  
-		  jQuery("#PricingQuerySubmit").click(function(){
-			if (!jQuery("#price-popup").valid())
-			{
-			   return false;
-			}
-            var sname=jQuery('#PriceName').val()
-			var smobile=jQuery('#PriceMobile').val()
-			var semail='No Email.'
-			jQuery("#pageloader").fadeIn();
-			var d = new Date();
-            jQuery.ajax({
-                url: 'https://tgroz9ryhi.execute-api.ap-south-1.amazonaws.com/Prod/api/Leads',
-                method: 'POST',
-                data: {
-
-                    name: sname ,
-                    mobile: smobile,
-                    email: semail,
-					date:'',
-					projectName:'NiralaEstate2'
-
-                },
-                success: function () {
-				      jQuery("#pageloader").fadeOut();
-                      jQuery('#price-model').modal('hide');
-					  gtag('event', 'conversion', {'send_to': 'AW-11134973561/eqHdCL_3uoEZEPnsyL0p'});
-                      window.alert('Thank you for showing interest in the project. Soon we will call you for exciting offers');
-                },
-                error: function () {
-				   jQuery("#pageloader").fadeOut();
-                   jQuery('#price-model').modal('hide');
-				   gtag('event', 'conversion', {'send_to': 'AW-11134973561/eqHdCL_3uoEZEPnsyL0p'});
-                   window.alert('Thank you for showing interest in the project. Soon we will call you for exciting offers');
-                }
-
-            });
-			return false;
-	      });
-		  
-		  
-		  jQuery("#interestedCustomer").click(function(){
-		    if (!jQuery("#float-form").valid())
-			{
-			   return false;
-			}
-            var sname=jQuery('#interestedName').val()
-			var smobile=jQuery('#interestedMobile').val()
-			var semail=jQuery('#interestedEmail').val()
-			jQuery("#pageloader").fadeIn();
-			var d = new Date();
-            jQuery.ajax({
-                url: 'https://tgroz9ryhi.execute-api.ap-south-1.amazonaws.com/Prod/api/Leads',
-                method: 'POST',
-                data: {
-
-                    name: sname ,
-                    mobile: smobile,
-                    email: semail,
-					date:'',
-					projectName:'NiralaEstate2'
-
-                },
-                success: function () {
-				      jQuery("#pageloader").fadeOut();
-                      jQuery('#interested-model').modal('hide');
-					  gtag('event', 'conversion', {'send_to': 'AW-11134973561/eqHdCL_3uoEZEPnsyL0p'});
-                      window.alert('Thank you for showing interest in the project. Soon we will call you for exciting offers');
-                },
-                error: function () {
-				   jQuery("#pageloader").fadeOut();
-                   jQuery('#interested-model').modal('hide');
-				   gtag('event', 'conversion', {'send_to': 'AW-11134973561/eqHdCL_3uoEZEPnsyL0p'});
-                   window.alert('Thank you for showing interest in the project. Soon we will call you for exciting offers');
-                }
-
-            });
-			return false;
-	      });
-		  
-		  
-		 jQuery('#sendMessage').click(function(){
-		    if (!jQuery("#contact-form").valid())
-			{
-			   return false;
-			}
-            var scontactName=jQuery('#fnameContactUs').val() + ' ' + jQuery('#lnameContactUs').val()
-			var scontactPhone=jQuery('#mobileContactUs').val()
-			var scontactEmail=jQuery('#emailContactUs').val()
-			var scontactMessage=jQuery('#messageContactUs').val()
-			jQuery("#pageloader").fadeIn();
-            jQuery.ajax({
-                url: 'https://tgroz9ryhi.execute-api.ap-south-1.amazonaws.com/Prod/api/ContactData',
-                method: 'POST',
-                data: {
-					name: scontactName,
-                    mobile: scontactPhone,
-                    email: scontactEmail,
-                    message: scontactMessage,
-                    projectName:'NiralaEstate2'
-                },
-                success: function () {
-                      jQuery("#pageloader").fadeOut();
-                      window.alert('Thank you for contacting us. Soon we will reply to your query');
-					  jQuery('#fnameContactUs').val('');
-					  jQuery('#lnameContactUs').val('');
-					  jQuery('#mobileContactUs').val('');
-					  jQuery('#emailContactUs').val('');
-					  jQuery('#messageContactUs').val('');
-                },
-                error: function () {
-                   jQuery("#pageloader").fadeOut();
-                   window.alert('Thank you for contacting us. Soon we will reply to your query');
-                }
-
-            });
-	      });
-	 
-	 
-	 });
 </script>
 	 
 <script type="text/javascript">
